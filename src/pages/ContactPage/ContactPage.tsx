@@ -28,10 +28,10 @@ const ContactPage: React.FC = () => {
 
     emailjs
       .send(
-        "service_p1uf9pp",
-        "template_69n332q",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
         formData,
-        "2Uql9M7zeuydWs_1a"
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID || ""
       )
       .then(
         (result) => {
@@ -135,7 +135,9 @@ const ContactPage: React.FC = () => {
               Nuestra Ubicación
             </h2>
             <div className="w-full h-96">
-              <APIProvider apiKey="AIzaSyD2e0Xuk98bKJknVoRNftgLfvp6rhUeMXA">
+              <APIProvider
+                apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}
+              >
                 <Map
                   style={{ width: "100%", height: "100%" }}
                   defaultCenter={{
