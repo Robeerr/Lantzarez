@@ -2,7 +2,6 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import React, { useEffect, useState } from "react";
 import Button from "../../components/ui/Button.tsx";
-import { Facebook, Instagram, Twitter } from "lucide-react";
 import { FaLeaf, FaHandshake, FaRegSmile } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Header from "../../components/ui/Header.tsx";

@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
           >
             <Instagram size={24} />
           </a>
-          <a href="#" className="text-stone-100 hover:text-amber-200">
+          <a href="/" className="text-stone-100 hover:text-amber-200">
             <Twitter size={24} />
           </a>
         </div>
