@@ -4,7 +4,6 @@ import Logo from "../../assets/images/Logo.png";
 
 const Header: React.FC = () => {
   const location = useLocation();
-  const [scrollY, setScrollY] = useState(0);
   const [headerVisible, setHeaderVisible] = useState(false);
 
   useEffect(() => {
@@ -12,7 +11,6 @@ const Header: React.FC = () => {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
 
       if (isHomePage) {
         if (currentScrollY >= window.innerHeight * 0.7) {
@@ -41,7 +39,6 @@ const Header: React.FC = () => {
       ? "bg-stone-900 text-stone-100 py-4 fixed top-0 left-0 w-full z-50"
       : "bg-stone-900 text-stone-100 py-4 fixed top-0 left-0 w-full z-50 opacity-100";
 
-  // Función para verificar si el enlace está activo
   const getLinkClass = (path: string) =>
     location.pathname === path ? "text-amber-600" : "hover:text-amber-600";
 

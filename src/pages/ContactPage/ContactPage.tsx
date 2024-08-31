@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 import Header from "../../components/ui/Header.tsx";
 import Footer from "../../components/ui/Footer.tsx";
@@ -13,6 +13,27 @@ const ContactPage: React.FC = () => {
     mensaje: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  console.log("Service ID:", process.env.REACT_APP_EMAILJS_SERVICE_ID);
+  console.log("Template ID:", process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
+  console.log("User ID:", process.env.REACT_APP_EMAILJS_USER_ID);
+  console.log("API Key:", process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+
+  console.log("Ambiente:", process.env);
+  console.log("Service ID:", process.env.REACT_APP_EMAILJS_SERVICE_ID);
+
+  console.log("Ambiente completo:", process.env);
+
+  if (
+    !process.env.REACT_APP_EMAILJS_SERVICE_ID ||
+    !process.env.REACT_APP_EMAILJS_TEMPLATE_ID ||
+    !process.env.REACT_APP_EMAILJS_USER_ID ||
+    !process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+  ) {
+    console.error(
+      "Missing environment variables. Make sure to set them in your .env.local file."
+    );
+  }
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,10 +49,10 @@ const ContactPage: React.FC = () => {
 
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        process.env.REACT_APP_EMAILJS_SERVICE_ID || "",
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "",
         formData,
-        process.env.NEXT_PUBLIC_EMAILJS_USER_ID || ""
+        process.env.REACT_APP_EMAILJS_USER_ID || ""
       )
       .then(
         (result) => {
@@ -136,7 +157,7 @@ const ContactPage: React.FC = () => {
             </h2>
             <div className="w-full h-96">
               <APIProvider
-                apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}
+                apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY || ""}
               >
                 <Map
                   style={{ width: "100%", height: "100%" }}
