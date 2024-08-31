@@ -3,20 +3,21 @@ import ChorizoImage from "../assets/images/cazuela_chorizo.jpg";
 import CodilloImage from "../assets/images/codillo_horno.jpg";
 import SalchichasImage from "../assets/images/salchichas_parrilla.jpg";
 import JamonImage from "../assets/images/ensalada_jamon.jpg";
+import MortadelaImage from "../assets/images/lunch_rebozado.jpg";
 
 export const recipes = [
   {
     id: 1,
-    name: "Tortilla con Lunch",
-    image: LunchImage,
-    description: "Deliciosa tortilla rellena de lunch y queso.",
-    ingredients: ["Lunch", "Huevos", "Queso", "Sal", "Pimienta"],
+    name: "Mortadela Rebozada",
+    image: MortadelaImage,
+    description: "Mortadela rebozada y frita.",
+    ingredients: ["Mortadela", "Harina de trigo", "2 Huevos", "Sal", "Aceite"],
     steps: [
-      "Batir los huevos y añadir sal y pimienta.",
-      "Agregar el lunch en trozos y el queso rallado.",
-      "Calentar una sartén con un poco de aceite y verter la mezcla.",
-      "Cocinar hasta que esté dorada y darle la vuelta.",
-      "Servir caliente.",
+      "Corta la mortadela en rodajas finitas y con grosor similar..",
+      "Casca los dos huevos, ponlos en un bol y bátelos.",
+      "Para rebozar la mortadela debes poner harina en un plato y pasarlas por ella por ambos lados.",
+      "Conforme vayas sacando tandas de mortadela rebozada, colócalas sobre un plato con papel de cocina para que absorba el exceso de aceite.",
+      "Sirve caliente o deja enfriar.",
     ],
     type: "Lunch",
   },
@@ -78,5 +79,20 @@ export const recipes = [
       "Servir frío.",
     ],
     type: "Jamón",
+  },
+  {
+    id: 6,
+    name: "Tortilla con Lunch",
+    image: LunchImage,
+    description: "Deliciosa tortilla rellena de lunch y queso.",
+    ingredients: ["Lunch", "Huevos", "Queso", "Sal", "Pimienta"],
+    steps: [
+      "Batir los huevos y añadir sal y pimienta.",
+      "Agregar el lunch en trozos y el queso rallado.",
+      "Calentar una sartén con un poco de aceite y verter la mezcla.",
+      "Cocinar hasta que esté dorada y darle la vuelta.",
+      "Servir caliente.",
+    ],
+    type: "Lunch",
   },
 ];
