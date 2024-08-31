@@ -14,27 +14,6 @@ const ContactPage: React.FC = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  console.log("Service ID:", process.env.REACT_APP_EMAILJS_SERVICE_ID);
-  console.log("Template ID:", process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
-  console.log("User ID:", process.env.REACT_APP_EMAILJS_USER_ID);
-  console.log("API Key:", process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
-
-  console.log("Ambiente:", process.env);
-  console.log("Service ID:", process.env.REACT_APP_EMAILJS_SERVICE_ID);
-
-  console.log("Ambiente completo:", process.env);
-
-  if (
-    !process.env.REACT_APP_EMAILJS_SERVICE_ID ||
-    !process.env.REACT_APP_EMAILJS_TEMPLATE_ID ||
-    !process.env.REACT_APP_EMAILJS_USER_ID ||
-    !process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-  ) {
-    console.error(
-      "Missing environment variables. Make sure to set them in your .env.local file."
-    );
-  }
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -180,6 +159,30 @@ const ContactPage: React.FC = () => {
                   />
                 </Map>
               </APIProvider>
+            </div>
+
+            <div className="mt-8">
+              <h2 className="text-2xl font-bold mb-2 font-playfair">
+                Llámanos
+              </h2>
+              <p className="text-lg font-merriweather mb-4">
+                Puedes llamarnos directamente al:
+              </p>
+              <a
+                href="tel:+34946400659"
+                className="text-amber-600 hover:text-amber-800 font-semibold"
+              >
+                +34 946 400 659
+              </a>
+              <p className="text-lg font-merriweather mt-4">
+                Tambien puedes enviarnos un email a: &nbsp;
+                <a
+                  href="mailto:administracion@lantzarez.com"
+                  className="text-amber-600 hover:text-amber-800 font-semibold"
+                >
+                  administracion@lantzarez.com
+                </a>
+              </p>
             </div>
           </div>
         </div>

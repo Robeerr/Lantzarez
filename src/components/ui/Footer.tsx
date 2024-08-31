@@ -7,7 +7,7 @@ import Button from "./Button.tsx";
 const Footer: React.FC = () => {
   return (
     <footer className="bg-stone-900 text-stone-100 py-16">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 md:px-0">
         <div>
           <img
             src={Logo}
@@ -51,8 +51,21 @@ const Footer: React.FC = () => {
           <h4 className="text-xl font-bold mb-4">Contacto</h4>
           <p>Polígono Erletxes 1-15, K</p>
           <p>48960 Galdakao, Bizkaia</p>
-          <p>Tel: +34 946 400 659</p>
-          <p>Email: administracion@lantzarez.com</p>
+          <p>
+            Tel:
+            <a href="tel:+34946400659" className="hover:text-amber-200 ml-2">
+              +34 946 400 659
+            </a>
+          </p>
+          <p>
+            Email:
+            <a
+              href="mailto:administracion@lantzarez.com"
+              className="hover:text-amber-200 ml-2"
+            >
+              administracion@lantzarez.com
+            </a>
+          </p>
         </div>
         <div>
           <h4 className="text-xl font-bold mb-4">Suscríbete</h4>
@@ -69,14 +82,16 @@ const Footer: React.FC = () => {
           </form>
         </div>
       </div>
-      <div className="container mx-auto mt-8 pt-8 border-t border-stone-800 flex justify-between items-center">
-        <p>&copy; 2023 Lantzarez. Todos los derechos reservados.</p>
+      <div className="container mx-auto mt-8 pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center px-4 md:px-0 space-y-4 md:space-y-0">
+        <p className="text-center md:text-left">
+          &copy; 2023 Lantzarez. Todos los derechos reservados.
+        </p>
         <div className="flex space-x-4">
           <a
             href="https://www.facebook.com/people/Lantzarez/100037905972080/"
             className="text-stone-100 hover:text-amber-200"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
           >
             <Facebook size={24} />
           </a>
@@ -84,7 +99,7 @@ const Footer: React.FC = () => {
             href="https://www.instagram.com/lantzarez/"
             className="text-stone-100 hover:text-amber-200"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
           >
             <Instagram size={24} />
           </a>

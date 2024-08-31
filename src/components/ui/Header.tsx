@@ -5,6 +5,7 @@ import Logo from "../../assets/images/Logo.png";
 const Header: React.FC = () => {
   const location = useLocation();
   const [headerVisible, setHeaderVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Nuevo estado para controlar el menú móvil
 
   useEffect(() => {
     const isHomePage = location.pathname === "/";
@@ -47,7 +48,7 @@ const Header: React.FC = () => {
       className={headerClass}
       style={location.pathname === "/" ? headerStyle : {}}
     >
-      <div className="container mx-auto flex justify-between items-center font-montserrat">
+      <div className="max-w-[95%] lg:max-w-[80%] mx-auto flex justify-between items-center font-montserrat">
         <img
           src={Logo}
           alt="Lantzarez Logo"
@@ -55,6 +56,29 @@ const Header: React.FC = () => {
           height={440}
           className="h-12 w-auto"
         />
+        {/* Botón de hamburguesa para móviles */}
+        <button
+          className="text-stone-100 md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {/* Icono de hamburguesa */}
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+
+        {/* Navegación: visible en pantallas medianas y grandes */}
         <nav className="hidden md:flex space-x-6 text-lg">
           <Link to="/" className={getLinkClass("/")}>
             Inicio
@@ -72,6 +96,47 @@ const Header: React.FC = () => {
             Contacto
           </Link>
         </nav>
+
+        {/* Menú desplegable móvil */}
+        {isMenuOpen && (
+          <nav className="absolute top-full left-0 right-0 bg-stone-900 text-stone-100 md:hidden flex flex-col items-center space-y-4 py-4">
+            <Link
+              to="/"
+              className={getLinkClass("/")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Inicio
+            </Link>
+            <Link
+              to="/about"
+              className={getLinkClass("/about")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Nosotros
+            </Link>
+            <Link
+              to="/products"
+              className={getLinkClass("/products")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Productos
+            </Link>
+            <Link
+              to="/recipes"
+              className={getLinkClass("/recipes")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Recetas
+            </Link>
+            <Link
+              to="/contact"
+              className={getLinkClass("/contact")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contacto
+            </Link>
+          </nav>
+        )}
       </div>
     </header>
   );

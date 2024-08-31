@@ -66,8 +66,8 @@ const ProductsPage: React.FC = () => {
       <Header />
 
       <main className="flex-grow container mx-auto px-4 py-8 mt-20">
-        <div className="flex justify-between mb-8 mt-8 items-center">
-          <div className="relative flex-1 max-w-xs">
+        <div className="flex flex-col md:flex-row justify-between mb-8 mt-8 items-center gap-4">
+          <div className="relative flex-1 max-w-xs w-full">
             <input
               type="text"
               placeholder="Buscar productos..."
@@ -80,9 +80,10 @@ const ProductsPage: React.FC = () => {
               size={20}
             />
           </div>
-          <div className="relative">
+
+          <div className="relative w-full md:w-auto">
             <select
-              className="appearance-none rounded-full border border-gray-300 bg-white pl-4 pr-10 py-2 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"
+              className="appearance-none w-full md:w-auto rounded-full border border-gray-300 bg-white pl-4 pr-10 py-2 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"
               value={brandFilter}
               onChange={handleBrandFilter}
             >
@@ -100,9 +101,10 @@ const ProductsPage: React.FC = () => {
               size={20}
             />
           </div>
-          <div className="relative">
+
+          <div className="relative w-full md:w-auto">
             <select
-              className="appearance-none rounded-full border border-gray-300 bg-white pl-4 pr-10 py-2 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"
+              className="appearance-none w-full md:w-auto rounded-full border border-gray-300 bg-white pl-4 pr-10 py-2 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-200"
               value={typeFilter}
               onChange={handleTypeFilter}
             >

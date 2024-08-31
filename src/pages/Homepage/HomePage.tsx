@@ -1,4 +1,6 @@
 import "aos/dist/aos.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import AOS from "aos";
 import React, { useEffect, useState } from "react";
 import Button from "../../components/ui/Button.tsx";
@@ -7,38 +9,15 @@ import { Link } from "react-router-dom";
 import Header from "../../components/ui/Header.tsx";
 import Footer from "../../components/ui/Footer.tsx";
 import ScrollToTopButton from "../../components/ui/ScrollToTopButton.tsx";
+import ProductCarousel from "../../components/ui/ProductCarousel.tsx";
 
 import Cabecera from "../../assets/images/home_cabecera.jpg";
 import Logo from "../../assets/images/Logo.png";
-import LogoELE from "../../assets/images/logo_ELE.png";
-import LogoSalami from "../../assets/images/logo_salami.png";
-import LogoQueseriasBama from "../../assets/images/logo_queserias_bama.png";
-import SartasVacio from "../../assets/images/sartas_vacio.jpg";
-import LunchSalami from "../../assets/images//salami_lunch.jpg";
-import QuesoOveja from "../../assets/images/queso_oveja.jpg";
 import MariaGarciaImg from "../../assets/images/maria_garcia.jpeg";
 import JuanPerezImg from "../../assets/images/juan_perez.jpeg";
-
-const products = [
-  {
-    name: "Sartas vacio ELE",
-    image: SartasVacio,
-    description:
-      "Desde el municipio zamorano de Roales del Pan, un lugar dotado de unas condiciones climáticas óptimas para la curación de las diversas carnes nos llegan los productos Ele.",
-  },
-  {
-    name: "Lunch Salami",
-    image: LunchSalami,
-    description:
-      "Salami cuenta con una importante variedad de productos, siendo los embutidos y los callos sus productos estrella, conservando el mismo sabor y calidad habituales que lleva cumpliendo la empresa desde sus orígenes.",
-  },
-  {
-    name: "Queso de Oveja",
-    image: QuesoOveja,
-    description:
-      "En Pago Los Vivales constan del control absoluto de todo el proceso, desde la fabricación de los alimentos que consume su propia ganadería",
-  },
-];
+// import LogoELE from "../../assets/images/logo_ELE.png";
+// import LogoSalami from "../../assets/images/logo_salami.png";
+// import LogoQueseriasBama from "../../assets/images/logo_queserias_bama.png";
 
 const testimonials = [
   {
@@ -86,37 +65,32 @@ const HomePage: React.FC = () => {
     <div className="bg-stone-100 text-stone-800 overflow-x-hidden">
       <Header />
       <section
-        className="relative h-[70vh] flex items-center justify-center py-32"
+        className="relative h-[70vh] w-full flex flex-col items-center justify-center py-32 overflow-hidden"
         style={heroStyle}
       >
         <img
           src={Cabecera}
           alt="Premium Spanish Charcuterie"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="fixed left-0 top-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative z-10 text-center text-stone-100">
-          <img src={Logo} alt="Lantzarez Logo" className="w-64 mx-auto mb-8" />
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 font-playfair">
+        <div className="relative z-10 text-center text-stone-100 px-4 sm:px-6">
+          <img
+            src={Logo}
+            alt="Lantzarez Logo"
+            className="w-40 sm:w-48 md:w-64 mx-auto mb-4 sm:mb-8"
+          />
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4 font-playfair">
             Sabor y Tradición Española
           </h1>
-          <p className="text-xl md:text-2xl mb-8 font-playfair">
+          <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-8 font-playfair">
             Descubre nuestra selección de embutidos y quesos artesanales
           </p>
           <Link to="/products">
-            <Button className="mt-auto inline-block rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-2 font-semibold text-white shadow-md transition-all duration-300 hover:from-amber-600 hover:to-amber-700 hover:shadow-lg font-raleway">
+            <Button className="inline-block rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-2 sm:px-6 sm:py-2 font-semibold text-white shadow-md transition-all duration-300 hover:from-amber-600 hover:to-amber-700 hover:shadow-lg font-raleway">
               Explorar Productos
             </Button>
           </Link>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-8">
-          <img src={LogoELE} alt="Ele Logo" className="w-24 mx-4" />
-          <img src={LogoSalami} alt="Salami Logo" className="w-24 mx-4" />
-          <img
-            src={LogoQueseriasBama}
-            alt="Queserias Bama Logo"
-            className="w-24 mx-4"
-          />
         </div>
       </section>
 
@@ -175,52 +149,18 @@ const HomePage: React.FC = () => {
         </section>
       </section>
 
-      <section className="py-32" data-aos="fade-up">
+      <section className="py-16 px-4 sm:px-6 lg:px-8" data-aos="fade-up">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 font-playfair">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-playfair">
             Productos Destacados
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl flex flex-col"
-              >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  width={400}
-                  height={300}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-bold mb-2">{product.name}</h3>
-                  <p className="text-stone-400 mb-4 font-merriweather flex-grow">
-                    {product.description.slice(0, 100)}...
-                  </p>
-                  <Button className="mt-auto inline-block rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-2 font-semibold text-white shadow-md transition-all duration-300 hover:from-amber-600 hover:to-amber-700 hover:shadow-lg font-raleway">
-                    Ver Detalles
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-16">
-            <Link to="/products">
-              <Button
-                variant="outline"
-                className="border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-stone-100 font-raleway"
-              >
-                Ver Todos los Productos
-              </Button>
-            </Link>
-          </div>
+          <ProductCarousel />{" "}
         </div>
       </section>
 
-      <section className="py-32" data-aos="fade-up">
+      <section className="py-16 px-4 sm:px-6 lg:px-8" data-aos="fade-up">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-12 font-playfair">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 font-playfair">
             Lo Que Dicen Nuestros Clientes
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

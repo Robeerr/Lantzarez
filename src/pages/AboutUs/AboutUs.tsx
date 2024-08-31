@@ -62,7 +62,7 @@ const AboutUs: React.FC = () => {
 
       <main className="flex-grow">
         <section
-          className="relative text-center py-64 bg-cover bg-center bg-no-repeat bg-fixed"
+          className="relative text-center py-64 bg-cover bg-center bg-no-repeat bg-fixed px-4 sm:px-6 lg:px-8"
           style={{
             backgroundImage: `url(${GenerationsImage})`,
             backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -82,7 +82,7 @@ const AboutUs: React.FC = () => {
           </div>
         </section>
 
-        <section className="container mx-auto text-left py-16 grid grid-cols-1 md:grid-cols-2 gap-16">
+        <section className="container mx-auto text-left py-16 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-16">
           <div data-aos="fade-right">
             <img
               src={EmbutidoImage}
@@ -120,7 +120,7 @@ const AboutUs: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-16 ">
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div
             className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-center"
             data-aos="fade-up"
@@ -152,7 +152,10 @@ const AboutUs: React.FC = () => {
           </div>
         </section>
 
-        <section className="container mx-auto py-16" data-aos="fade-up">
+        <section
+          className="container mx-auto py-16 px-4 sm:px-6 lg:px-8"
+          data-aos="fade-up"
+        >
           <div className="bg-stone-200 p-8 rounded-lg flex flex-col justify-center items-center shadow-lg">
             <div className="text-center mb-8">
               <h4 className="text-4xl font-bold text-amber-600">

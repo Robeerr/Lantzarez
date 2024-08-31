@@ -136,9 +136,11 @@ const ProductDetailPage: React.FC = () => {
             </ul>
 
             <div className="mb-8">
-              <Button className="rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-8 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:from-amber-600 hover:to-amber-700 hover:shadow-lg">
-                Contacta con Nosotros
-              </Button>
+              <Link to="/contact">
+                <Button className="rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-8 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:from-amber-600 hover:to-amber-700 hover:shadow-lg">
+                  Contacta con Nosotros
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
